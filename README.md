@@ -1,17 +1,13 @@
-# Домашнее задание к занятию «Запуск приложений в K8S»
+# Домашнее задание к занятию «Настройка приложений и управление доступом в Kubernetes
 
-### Задание 1. Создать Deployment и обеспечить доступ к репликам приложения из другого Pod
+### Задание 1: Работа с ConfigMaps
+![img](img/task1.png)
 
-![img](img/pod1.png)
-![img](img/pod1.2.png)
-![img](img/log.png)
+### Задание 2: Настройка HTTPS с Secrets
+![img](img/task2.png)
 
-### Задание 2. Создать Deployment и обеспечить старт основного контейнера при выполнении условий
-![img](img/log_pvc.png)
-![img](img/delete_pvc.png)
-![img](img/node.png)
-
-### Задание 3. StorageClass
-![img](img/log_task3.png)
+### Задание 3: Настройка RBAC
+![img](img/ssl.png)
+![img](img/access.png)
 
 

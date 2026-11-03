@@ -1,11 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-init-service
+  name: web-app-svc
+  namespace: default
 spec:
   selector:
-    app: nginx-init
+    app: web-app
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
+  type: ClusterIP
