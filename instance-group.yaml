@@ -1,0 +1,73 @@
+name: lamp-instance-group
+service_account_id: aje5rs9v29j69jn8pi92
+
+instance_template:
+  platform_id: standard-v3
+  resources_spec:
+    memory: 2G
+    cores: 2
+    core_fraction: 20
+
+  boot_disk_spec:
+    mode: READ_WRITE
+    disk_spec:
+      image_id: fd827b91d99psvq5fjit
+      type_id: network-hdd
+      size: 10G
+
+  network_interface_specs:
+    - network_id: enpp10atjj1739nu1e3a
+      subnet_ids:
+        - e9b6957ptbets9p29qqh
+      security_group_ids:
+        - enpg92ietiieo409dpt7
+      primary_v4_address_spec:
+        one_to_one_nat_spec:
+          ip_version: IPV4
+
+  metadata:
+    ssh-keys: "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOTDBFjtJpgwwcTib6O684dZ+CgAQ6w3UYL7qxEmafWf aleksei@aleksei-911S"
+    user-data: |
+      #cloud-config
+      write_files:
+        - path: /var/www/html/index.html
+          permissions: '0644'
+          content: |
+            <!DOCTYPE html>
+            <html lang="ru">
+            <head>
+              <meta charset="UTF-8">
+              <title>Yandex Cloud Lab</title>
+            </head>
+            <body>
+              <h1>Моя лабораторная работа Yandex Cloud</h1>
+              <p>Веб-сервер работает!</p>
+              <img src="https://storage.yandexcloud.net/aleksei-lab-20261110/dog.jpeg" alt="Изображение из Object Storage" width="400">
+            </body>
+            </html>
+
+scale_policy:
+  fixed_scale:
+    size: 3
+
+allocation_policy:
+  zones:
+    - zone_id: ru-central1-a
+
+deploy_policy:
+  max_unavailable: 1
+  max_expansion: 0
+
+health_checks_spec:
+  health_check_specs:
+    - interval: 30s
+      timeout: 10s
+      unhealthy_threshold: 5
+      healthy_threshold: 3
+      http_options:
+        port: 80
+        path: /
+
+load_balancer_spec:
+  target_group_spec:
+    name: lamp-instance-group-targets
