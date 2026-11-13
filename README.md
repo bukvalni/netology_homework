@@ -1,8 +1,8 @@
-# Домашнее задание к занятию «Организация сети»
+# Домашнее задание к занятию «Безопасность в облачных провайдерах»
 
 ### Задание 1. Yandex Cloud
-![img](img/ssh.png)
-![img](img/curl.png)
-![img](img/sshPVM.png)
-![img](img/curlPVM.png)
-![img](img/cloud.png)
+![img](img/task1.png)
+![img](img/task1.2.png)
+![img](img/task2.png)
+![img](img/task2.1.png)
+![img](img/task2.2.png)
