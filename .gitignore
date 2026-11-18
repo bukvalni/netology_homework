@@ -1,1 +1,16 @@
-minikube-linux-amd64
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform.lock.hcl
+crash.log
+crash.*.log
+
+# Sensitive files
+*.tfvars
+*.tfvars.json
+
+# SSH keys
+*.pem
+*.keyminikube-linux-amd64
